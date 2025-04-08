@@ -1,30 +1,45 @@
+:root {
+  --color-accent: oklch(0.9 0.074 208.59);  /* Accent color */
+}
+
 body {
-  /* Set line height to 1.5 times the font size
-	   and use the OS’s UI font as the website font
-	 */
+  /* Set line height to 1.5 times the font size and use the OS’s UI font as the website font */
   font: 100%/1.5 system-ui;
   font-family: sans-serif;
   max-width: 100ch;
   margin: 0 auto;
   padding: 1rem;
-  
 }
 
 nav {
   display: flex;
   gap: 1rem;
+  border-bottom: 1px solid oklch(80% 3% 200);  /* Corrected to apply color to the border */
+  margin-bottom: 1rem;
 }
 
 nav a {
   flex: 1;
   text-align: center;
-  padding: 0.5rem 0;
+  padding: 0.5em;
   text-decoration: none;
-  color: black;
+  color: inherit;
   font-weight: bold;
+  margin-bottom: 1rem;  /* Fixed typo (removed space) */
 }
 
+/* Style the current page link */
 nav a.current {
-  color: black;
+  color: inherit;
   font-weight: bold;
+  border-bottom: 0.4em solid oklch(80% 3% 200);  /* Accent color for current page link */
+  padding-bottom: 0.2em;
+}
+
+/* Style for hovered links */
+nav a:hover {
+  background-color: oklch(85% 10% 208.59);  /* Lighter version of the accent color */
+  color: inherit;  /* Change text color on hover */
+  border-bottom: 1px solid var(--color-accent);  /* Accent color for hover border */
+  padding-bottom: 0.2em;  /* Consistent padding for hover effect */
 }
