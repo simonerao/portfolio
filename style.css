@@ -1,5 +1,5 @@
 :root {
-  --color-accent: oklch(0.9 0.074 208.59);  /* Accent color */
+  --color-accent: oklch(0.9 0.074 208.59); 
 }
 
 body {
@@ -14,7 +14,7 @@ body {
 nav {
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid oklch(80% 3% 200);  /* Corrected to apply color to the border */
+  border-bottom: 1px solid oklch(80% 3% 200); 
   margin-bottom: 1rem;
 }
 
@@ -25,21 +25,20 @@ nav a {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
-  margin-bottom: 1rem;  /* Fixed typo (removed space) */
+  margin-bottom: 1rem;  
 }
 
-/* Style the current page link */
 nav a.current {
   color: inherit;
   font-weight: bold;
-  border-bottom: 0.4em solid oklch(80% 3% 200);  /* Accent color for current page link */
+  border-bottom: 0.4em solid oklch(80% 3% 200);  
   padding-bottom: 0.2em;
 }
 
 /* Style for hovered links */
 nav a:hover {
-  background-color: oklch(85% 10% 208.59);  /* Lighter version of the accent color */
-  color: inherit;  /* Change text color on hover */
-  border-bottom: 1px solid var(--color-accent);  /* Accent color for hover border */
-  padding-bottom: 0.2em;  /* Consistent padding for hover effect */
+  background-color: oklch(85% 10% 208.59);  
+  color: inherit; 
+  border-bottom: 1px solid var(--color-accent);  
+  padding-bottom: 0.2em;  
 }
