@@ -7,4 +7,10 @@ body {
   max-width: 100ch;
   margin: 0 auto;
   padding: 1rem;
+  
 }
+
+nav ul,
+  nav li {
+    display: contents;
+  }
