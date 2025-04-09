@@ -140,9 +140,83 @@ section p {
   color: #444;
 }
 
+section ul {
+  list-style-type: disc;
+  margin-left: 2rem;
+}
+
+article header h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(68, 68, 68);
+  margin-bottom: 0.5rem;
+}
+
+article header time {
+  font-size: 1rem;
+  color: #666;
+}
+
+
+.logo-portfolink {
+  width: 100px;
+  height: auto;
+  margin-right: 0.5em;
+}
+
+.logo-wgb {
+  width: 200px; /* or whatever size looks right */
+  height: auto;
+  margin-right: 0.5em;
+}
+
+article ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+article ul li {
+  margin-bottom: 0.5rem;
+}
+
+
+
 #personal-info p {
   text-align: center;
   font-size: 1.1rem;
   color: #444;
   margin: 0.5rem 0; /* Add some space between paragraphs */
 }
+
+.degree-info {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(159, 170, 138);
+}
+
+#projects p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0.5rem 0; /* Add some space between paragraphs */
+}
+
+#work-experience article:nth-of-type(2) {
+  margin-top: 2rem; /* Increase this value as needed */
+}
+
+#skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+#skills li {
+  font-size: 1rem;
+  background-color: rgb(222, 230, 209);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+
