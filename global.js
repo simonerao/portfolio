@@ -62,21 +62,22 @@ select.addEventListener('input', function (event) {
 });
 
 // Function to set the color scheme
+// Function to set the color scheme
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme); // Set the color-scheme
-  localStorage.colorScheme = colorScheme; // Save to localStorage
+  localStorage.setItem('colorScheme', colorScheme); // Save to localStorage
 }
 
-// Check if there's a saved color scheme in localStorage
+// Check if there's a saved color scheme in localStorage on page load
 window.addEventListener('load', () => {
-  const savedColorScheme = localStorage.colorScheme;
+  const savedColorScheme = localStorage.getItem('colorScheme'); // Get saved value from localStorage
 
   if (savedColorScheme) {
     // Apply saved color scheme
     setColorScheme(savedColorScheme);
     document.querySelector('#theme-select').value = savedColorScheme; // Update the select element
   } else {
-    // Default to 'light dark' if no saved color scheme
+    // Default to 'light dark' if no saved color scheme, based on system preference
     const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
     const autoLabel = isDark ? 'Automatic (Dark)' : 'Automatic (Light)';
     document.querySelector('option[value="light dark"]').textContent = autoLabel;
@@ -89,6 +90,7 @@ document.querySelector('#theme-select').addEventListener('input', function (even
   const selectedColorScheme = event.target.value;
   setColorScheme(selectedColorScheme); // Apply the new color scheme
 });
+
 
 
 
