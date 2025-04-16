@@ -61,5 +61,36 @@ select.addEventListener('input', function (event) {
   document.documentElement.style.setProperty('color-scheme', event.target.value);
 });
 
+// Function to set the color scheme
+function setColorScheme(colorScheme) {
+  document.documentElement.style.setProperty('color-scheme', colorScheme); // Set the color-scheme on the root element
+  localStorage.colorScheme = colorScheme; // Save the color scheme to localStorage
+  select.value = colorScheme; // Update the <select> element to match the saved preference
+}
+
+// On page load, check if the color scheme is saved in localStorage
+window.addEventListener('load', () => {
+  // Check if there's a saved color scheme in localStorage
+  const savedColorScheme = localStorage.colorScheme;
+
+  if (savedColorScheme) {
+    setColorScheme(savedColorScheme); // Apply the saved color scheme
+  } else {
+    // If no saved color scheme, default to 'light dark' (automatic based on system preference)
+    const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+    const autoLabel = isDark ? 'Automatic (Dark)' : 'Automatic (Light)';
+    select.querySelector('option[value="light dark"]').textContent = autoLabel;
+    setColorScheme('light dark'); // Default to automatic
+  }
+});
+
+// Add event listener to the select element to change the color scheme
+const select = document.querySelector('#theme-select');
+
+select.addEventListener('input', function (event) {
+  setColorScheme(event.target.value); // Change the color scheme based on user input
+});
+
+
 
 
