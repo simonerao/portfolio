@@ -49,18 +49,6 @@ document.body.insertAdjacentHTML(
   `
 );
 
-document.getElementById('theme-select').addEventListener('change', (e) => {
-  document.documentElement.style.colorScheme = e.target.value;
-});
-
-const select = document.querySelector('#theme-select');
-
-select.addEventListener('input', function (event) {
-  console.log('color scheme changed to', event.target.value); // Log the selected value
-
-  document.documentElement.style.setProperty('color-scheme', event.target.value);
-});
-
 // Function to set the color scheme and store it in localStorage
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme); // Set the color-scheme
@@ -86,14 +74,7 @@ window.addEventListener('load', () => {
 });
 
 // Event listener for when the user selects a new theme
-document.querySelector('#theme-select').addEventListener('input', function (event) {
+document.querySelector('#theme-select').addEventListener('change', function (event) {
   const selectedColorScheme = event.target.value;
   setColorScheme(selectedColorScheme); // Apply the new color scheme
 });
-
-
-
-
-
-
-
