@@ -1,73 +1,28 @@
 :root {
   --color-accent: oklch(95% 10% 208.59); 
-  --border-color: oklch(50% 10% 200 / 40%);
-  --background-color-light: white; /* Define light mode background */
-  --background-color-dark: #121212; /* Dark mode background */
-  --text-color-light: black; /* Light mode text color */
-  --text-color-dark: white; /* Dark mode text color */
-  
-  color-scheme: light dark; /* Allow browser to switch between light and dark mode */
+  color-scheme: light dark; /* Tell the browser that your site can support both light and dark mode */
+}
+
+/* Apply the system color scheme */
+html {
+  color-scheme: light dark; /* This informs the browser that your site supports both light and dark modes */
 }
 
 body {
+  /* Set line height to 1.5 times the font size and use the OS’s UI font as the website font */
   font: 100%/1.5 system-ui;
   font-family: sans-serif;
   max-width: 100ch;
   margin: 0 auto;
   padding: 1rem;
-  background-color: var(--background-color-light); /* Default to light mode background */
-  color: var(--text-color-light); /* Default to light mode text color */
+  background-color: var(--bg-color-light); /* Default light background */
+  color: var(--text-color-light); /* Default light text color */
 }
 
-@media (prefers-color-scheme: dark) {
-  body {
-    background-color: var(--background-color-dark); /* Dark mode background */
-    color: var(--text-color-dark); /* Dark mode text color */
-  }
-
-  nav {
-    --border-color: oklch(50% 10% 200 / 40%);
-    border-bottom-color: var(--border-color); /* Use the adjusted border color */
-  }
-
-  /* More dark mode styles */
-  header p {
-    color: #bbb; /* Lighten the text color in dark mode */
-  }
-
-  section p {
-    color: #ccc; /* Lighten the section text color */
-  }
-
-  /* Adjust hover state for dark mode */
-  nav a:hover {
-    background-color: var(--color-accent);
-    border-bottom: 0.5em solid oklch(80% 20% 215);
-  }
-}
-
-/* Light mode styles (optional, but good for clarity) */
-@media (prefers-color-scheme: light) {
-  body {
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
-  }
-
-  nav {
-    border-bottom-color: var(--border-color); /* Use the adjusted border color */
-  }
-
-  nav a:hover {
-    background-color: var(--color-accent);
-    border-bottom: 0.5em solid oklch(80% 20% 215);
-  }
-}
-
-/* Other existing styles for layout, forms, etc., go below */
 nav {
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid oklch(80% 3% 200); 
   margin-bottom: 1rem;
 }
 
@@ -84,8 +39,15 @@ nav a {
 nav a.current {
   color: inherit;
   font-weight: bold;
-  border-bottom: 0.4em solid var(--border-color);  
+  border-bottom: 0.4em solid oklch(80% 3% 200);  
   padding-bottom: 0.2em;
+}
+
+nav a:hover {
+  background-color: var(--color-accent);  
+  color: inherit; 
+  border-bottom: 0.5em solid oklch(80% 20% 215);  
+  padding-bottom: 0.2em;  
 }
 
 input, textarea, button {
@@ -134,9 +96,9 @@ h2 {
 }
 
 h1 {
-  font-size: 4em;
+  font-size: 4em;  /* 400% of body text size */
   line-height: 1.1;
-  text-wrap: balance;
+  text-wrap: balance; /* Ensures heading text doesn't break unevenly */
 }
 
 h2 {
@@ -172,10 +134,10 @@ section {
 
 section header h2 {
   font-size: 2.5em;
-  border-bottom: 2px solid var(--border-color);
+  border-bottom: 2px solid oklch(80% 3% 200);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-  color: rgb(158, 175, 125);
+  color:rgb(158, 175, 125);
 }
 
 section p {
@@ -199,4 +161,109 @@ article header h3 {
 article header time {
   font-size: 1rem;
   color: #666;
+}
+
+.logo-portfolink {
+  width: 100px;
+  height: auto;
+  margin-right: 0.5em;
+}
+
+.logo-wgb {
+  width: 200px; /* or whatever size looks right */
+  height: auto;
+  margin-right: 0.5em;
+}
+
+article ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+article ul li {
+  margin-bottom: 0.5rem;
+}
+
+#personal-info p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0.5rem 0; /* Add some space between paragraphs */
+}
+
+.degree-info {
+  text-align: center;
+  font-weight: bold;
+  color: rgb(159, 170, 138);
+}
+
+#projects p {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin: 0.5rem 0; /* Add some space between paragraphs */
+}
+
+#work-experience article:nth-of-type(2) {
+  margin-top: 2rem; /* Increase this value as needed */
+}
+
+#skills ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1rem;
+}
+
+#skills li {
+  font-size: 1rem;
+  background-color: rgb(222, 230, 209);
+  padding: 0.5rem;
+  text-align: center;
+  border-radius: 5px;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--bg-color-dark); /* Dark mode background */
+    color: var(--text-color-dark); /* Dark mode text color */
+  }
+
+  header p, section p {
+    color: #bbb; /* Slightly lighter text in dark mode */
+  }
+
+  nav a {
+    color: var(--text-color-dark);
+  }
+
+  section header h2 {
+    color: rgb(158, 175, 125); /* Keep heading colors the same in dark mode */
+  }
+
+  .projects article {
+    background-color: rgb(41, 41, 41); /* Darken backgrounds for project articles */
+  }
+
+  #skills li {
+    background-color: rgb(63, 63, 63); /* Darken skill background */
+    color: #ddd;
+  }
+}
+
+/* Light mode colors */
+:root {
+  --bg-color-light: #fff;
+  --text-color-light: #333;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--bg-color-light); /* Light mode background */
+    color: var(--text-color-light); /* Light mode text color */
+  }
+
+  nav a {
+    color: var(--text-color-light);
+  }
 }
