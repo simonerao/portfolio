@@ -80,27 +80,38 @@ document.querySelector('#theme-select').addEventListener('change', function (eve
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-  // Check if the contact form exists on the page
+// This script will handle the contact form submission
+
+document.addEventListener("DOMContentLoaded", function() {
+  // Get a reference to the form
   const form = document.getElementById('contact-form');
 
-  // If the form exists, add the submit event listener
-  form?.addEventListener('submit', (event) => {
-      event.preventDefault(); // Prevent the default form submission
+  if (form) {
+      // Add an event listener for form submission
+      form.addEventListener('submit', function (event) {
+          event.preventDefault(); // Prevent the default form submission
 
-      // Get form data
-      const formData = new FormData(form);
-      const params = [];
+          // Create a new FormData object to hold the form data
+          const data = new FormData(form);
 
-      // Build URL parameters
-      for (let [name, value] of formData) {
-          params.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
-      }
+          // Initialize an array to hold the URL parameters
+          const params = [];
 
-      // Create the full mailto URL
-      const mailtoUrl = `mailto:sirao@ucsd.edu?${params.join('&')}`;
+          // Loop through the FormData object and encode each value
+          for (let [name, value] of data) {
+              // Add the encoded key-value pair to the params array
+              params.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
+          }
 
-      // Open the email client with the correct URL
-      window.location.href = mailtoUrl;
-  });
+          // Join the parameters into a query string
+          const queryString = params.join('&');
+
+          // Create the mailto URL
+          const mailtoUrl = `mailto:sirao@ucsd.edu?${queryString}`;
+
+          // Redirect to the mailto URL (this opens the email client)
+          location.href = mailtoUrl;
+      });
+  }
 });
+

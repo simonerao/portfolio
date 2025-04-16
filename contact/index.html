@@ -10,9 +10,10 @@
 <body>
 
     <h1>Contact</h1>
-        <p>Here is where you can get in contact with me!</p>
+    <p>Here is where you can get in contact with me!</p>
 
-    <form action="mailto: sirao@ucsd.edu" method="POST" enctype="text/plain">
+    <!-- Removed enctype and method from form -->
+    <form id="contact-form">
         <label>
             Your Email:
             <input type="email" name="email" required>
@@ -21,7 +22,7 @@
 
         <label>
             Subject:
-            <input name = "subject" required>
+            <input name="subject" required>
         </label>
         <br><br>
 
@@ -33,6 +34,6 @@
         
         <button>Send</button>
     </form>
-    
+
 </body>
 </html>
