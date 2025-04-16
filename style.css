@@ -1,6 +1,8 @@
 :root {
   --color-accent: oklch(95% 10% 208.59); 
   color-scheme: light dark; 
+  --border-color-light: oklch(50% 10% 200 / 40%); 
+  --border-color-dark: oklch(50% 10% 200 / 30%);
 }
 
 html {
@@ -18,9 +20,10 @@ body {
 }
 
 nav {
+  --border-color: var(--border-color-light);
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid oklch(80% 3% 200); 
+  border-bottom: 1px solid var(--border-color); 
   margin-bottom: 1rem;
 }
 
@@ -37,7 +40,7 @@ nav a {
 nav a.current {
   color: inherit;
   font-weight: bold;
-  border-bottom: 0.4em solid oklch(80% 3% 200);  
+  border-bottom: 0.4em solid var(--border-color); 
   padding-bottom: 0.2em;
 }
 
