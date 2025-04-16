@@ -78,3 +78,29 @@ document.querySelector('#theme-select').addEventListener('change', function (eve
   const selectedColorScheme = event.target.value;
   setColorScheme(selectedColorScheme); // Apply the new color scheme
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if the contact form exists on the page
+  const form = document.getElementById('contact-form');
+
+  // If the form exists, add the submit event listener
+  form?.addEventListener('submit', (event) => {
+      event.preventDefault(); // Prevent the default form submission
+
+      // Get form data
+      const formData = new FormData(form);
+      const params = [];
+
+      // Build URL parameters
+      for (let [name, value] of formData) {
+          params.push(`${encodeURIComponent(name)}=${encodeURIComponent(value)}`);
+      }
+
+      // Create the full mailto URL
+      const mailtoUrl = `mailto:sirao@ucsd.edu?${params.join('&')}`;
+
+      // Open the email client with the correct URL
+      window.location.href = mailtoUrl;
+  });
+});
