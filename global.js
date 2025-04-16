@@ -32,6 +32,9 @@ for (let p of pages) {
   nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
 }
 
+const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
+const autoLabel = isDark ? 'Automatic (Dark)' : 'Automatic (Light)';
+
 document.body.insertAdjacentHTML(
   'afterbegin',
   `
