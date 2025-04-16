@@ -1,10 +1,8 @@
 :root {
   --color-accent: oklch(95% 10% 208.59); 
-  --border-color: oklch(50% 10% 200 / 40%); /* Adjusted border color for both light and dark mode */
-}
-
-html {
-  color-scheme: light dark; /* Declare support for both light and dark modes */
+  --border-color: oklch(50% 10% 200 / 40%);
+  color-scheme: light dark;
+   /* Adjusted border color for both light and dark mode */
 }
 
 body {
