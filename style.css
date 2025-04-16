@@ -223,6 +223,18 @@ article ul li {
   border-radius: 5px;
 }
 
+.color-scheme {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-size: 80%;
+  font-family: inherit; /* Inherit font-family from parent */
+}
+
+input, textarea, button, select {
+  font: inherit; /* Ensures that form controls inherit font-family from the body */
+}
+
 
 
 
