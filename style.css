@@ -1,6 +1,5 @@
 :root {
   --color-accent: oklch(95% 10% 208.59); 
-  color-scheme: light dark;
 }
 
 body {
