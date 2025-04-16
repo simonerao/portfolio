@@ -63,33 +63,33 @@ select.addEventListener('input', function (event) {
 
 // Function to set the color scheme
 function setColorScheme(colorScheme) {
-  document.documentElement.style.setProperty('color-scheme', colorScheme); // Set the color-scheme on the root element
-  localStorage.colorScheme = colorScheme; // Save the color scheme to localStorage
-  select.value = colorScheme; // Update the <select> element to match the saved preference
+  document.documentElement.style.setProperty('color-scheme', colorScheme); // Set the color-scheme
+  localStorage.colorScheme = colorScheme; // Save to localStorage
 }
 
-// On page load, check if the color scheme is saved in localStorage
+// Check if there's a saved color scheme in localStorage
 window.addEventListener('load', () => {
-  // Check if there's a saved color scheme in localStorage
   const savedColorScheme = localStorage.colorScheme;
 
   if (savedColorScheme) {
-    setColorScheme(savedColorScheme); // Apply the saved color scheme
+    // Apply saved color scheme
+    setColorScheme(savedColorScheme);
+    document.querySelector('#theme-select').value = savedColorScheme; // Update the select element
   } else {
-    // If no saved color scheme, default to 'light dark' (automatic based on system preference)
+    // Default to 'light dark' if no saved color scheme
     const isDark = matchMedia('(prefers-color-scheme: dark)').matches;
     const autoLabel = isDark ? 'Automatic (Dark)' : 'Automatic (Light)';
-    select.querySelector('option[value="light dark"]').textContent = autoLabel;
-    setColorScheme('light dark'); // Default to automatic
+    document.querySelector('option[value="light dark"]').textContent = autoLabel;
+    setColorScheme('light dark'); // Set the default to automatic
   }
 });
 
-// Add event listener to the select element to change the color scheme
-const select = document.querySelector('#theme-select');
-
-select.addEventListener('input', function (event) {
-  setColorScheme(event.target.value); // Change the color scheme based on user input
+// Event listener for when the user selects a new theme
+document.querySelector('#theme-select').addEventListener('input', function (event) {
+  const selectedColorScheme = event.target.value;
+  setColorScheme(selectedColorScheme); // Apply the new color scheme
 });
+
 
 
 
