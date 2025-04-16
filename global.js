@@ -53,5 +53,13 @@ document.getElementById('theme-select').addEventListener('change', (e) => {
   document.documentElement.style.colorScheme = e.target.value;
 });
 
+const select = document.querySelector('#theme-select');
+
+select.addEventListener('input', function (event) {
+  console.log('color scheme changed to', event.target.value); // Log the selected value
+
+  document.documentElement.style.setProperty('color-scheme', event.target.value);
+});
+
 
 
