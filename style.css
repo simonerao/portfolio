@@ -223,5 +223,14 @@ article ul li {
   border-radius: 5px;
 }
 
+.color-scheme {
+  display: block;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+.color-scheme select {
+  margin-left: 0.5em;
+}
+
 
 

@@ -31,3 +31,25 @@ for (let p of pages) {
 
   nav.insertAdjacentHTML('beforeend', `<a href="${url}">${title}</a>`);
 }
+
+document.body.insertAdjacentHTML(
+  'afterbegin',
+  `
+  <label class="color-scheme">
+    Theme:
+    <select id="theme-select">
+      <option value="light dark">Automatic</option>
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+  </label>
+  `
+);
+
+const themeSelect = document.getElementById('theme-select');
+
+themeSelect.addEventListener('change', (event) => {
+  document.documentElement.style.colorScheme = event.target.value;
+});
+
+
