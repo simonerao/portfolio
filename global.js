@@ -46,10 +46,9 @@ document.body.insertAdjacentHTML(
   `
 );
 
-const themeSelect = document.getElementById('theme-select');
-
-themeSelect.addEventListener('change', (event) => {
-  document.documentElement.style.colorScheme = event.target.value;
+document.getElementById('theme-select').addEventListener('change', (e) => {
+  document.documentElement.style.colorScheme = e.target.value;
 });
+
 
 
