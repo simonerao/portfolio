@@ -247,9 +247,9 @@ input, textarea, button, select {
 /* Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color-dark: #121212;
-    --text-color-dark: white;
-    --accent-color-dark: #bb86fc;
+    --bg-color-dark: #121212; /* Dark background for better contrast */
+    --text-color-dark: white; /* Light text for readability */
+    --accent-color-dark: #bb86fc; /* Accent color for dark mode */
     --border-color-dark: oklch(50% 10% 200 / 30%);
   }
 
@@ -282,7 +282,7 @@ input, textarea, button, select {
   }
 
   .resume-section p {
-    color: var(--text-color-dark);
+    color: var(--text-color-dark); /* Ensure all text is readable in dark mode */
   }
 
   a {
@@ -293,21 +293,25 @@ input, textarea, button, select {
     color: var(--accent-color-light); /* Lighter hover effect for dark mode */
   }
 
-  /* Specific styling for light text on dark background */
   section header h2 {
     color: rgb(158, 175, 125);
   }
 
   section p {
-    color: #bbb;
+    color: #bbb; /* Lighter text in dark mode for readability */
   }
 
   #skills li {
-    background-color: rgb(54, 54, 54);
-    color: rgb(222, 230, 209);
+    background-color: rgb(54, 54, 54); /* Darker background for skills */
+    color: rgb(222, 230, 209); /* Light text on dark background */
   }
 
   #work-experience article:nth-of-type(2) {
     margin-top: 2rem;
+  }
+
+  /* Additional adjustments for readability */
+  header p, section p, #projects p, #personal-info p {
+    color: #bbb; /* Lighter text color in dark mode */
   }
 }
