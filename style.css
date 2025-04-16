@@ -1,12 +1,21 @@
 :root {
-  --color-accent: oklch(95% 10% 208.59); 
-  color-scheme: light dark; 
-  --border-color-light: oklch(50% 10% 200 / 40%); 
+  --color-accent: oklch(95% 10% 208.59);
+  color-scheme: light dark;
+  --border-color-light: oklch(50% 10% 200 / 40%);
   --border-color-dark: oklch(50% 10% 200 / 30%);
+  
+  /* Light mode variables */
+  --bg-color-light: white;
+  --text-color-light: black;
+  --bg-color-dark: #121212; /* Dark mode background */
+  --text-color-dark: white; /* Dark mode text color */
+  --accent-color-dark: #bb86fc; /* Accent color for dark mode */
+  --accent-color-light: #1e90ff; /* Accent color for light mode */
+  --border-color-light: oklch(50% 10% 200 / 40%);
 }
 
 html {
-  color-scheme: light dark; 
+  color-scheme: light dark;
 }
 
 body {
@@ -15,15 +24,15 @@ body {
   max-width: 100ch;
   margin: 0 auto;
   padding: 1rem;
-  background-color: var(--bg-color-light); 
-  color: var(--text-color-light); 
+  background-color: var(--bg-color-light);
+  color: var(--text-color-light);
 }
 
 nav {
   --border-color: var(--border-color-light);
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid var(--border-color); 
+  border-bottom: 1px solid var(--border-color);
   margin-bottom: 1rem;
 }
 
@@ -34,21 +43,21 @@ nav a {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
-  margin-bottom: 0;  
+  margin-bottom: 0;
 }
 
 nav a.current {
   color: inherit;
   font-weight: bold;
-  border-bottom: 0.4em solid var(--border-color); 
+  border-bottom: 0.4em solid var(--border-color);
   padding-bottom: 0.2em;
 }
 
 nav a:hover {
   background-color: color-mix(in oklch, oklch(95% 10% 208.59), canvas 85%);
-  color: inherit; 
-  border-bottom: 0.5em solid oklch(80% 20% 215);  
-  padding-bottom: 0.2em;  
+  color: inherit;
+  border-bottom: 0.5em solid oklch(80% 20% 215);
+  padding-bottom: 0.2em;
 }
 
 input, textarea, button {
@@ -97,19 +106,19 @@ h2 {
 }
 
 h1 {
-  font-size: 4em;  
+  font-size: 4em;
   line-height: 1.1;
-  text-wrap: balance; 
+  text-wrap: balance;
 }
 
 h2 {
-  font-size: 2.5em;  
+  font-size: 2.5em;
   line-height: 1.1;
   text-wrap: balance;
 }
 
 h3, h4, h5, h6 {
-  font-size: 1.5em;  
+  font-size: 1.5em;
   line-height: 1.1;
   text-wrap: balance;
 }
@@ -120,7 +129,7 @@ header {
 }
 
 header h1 {
-  font-size: 4em;  
+  font-size: 4em;
   margin-bottom: 0.5rem;
 }
 
@@ -138,7 +147,7 @@ section header h2 {
   border-bottom: 2px solid oklch(80% 3% 200);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-  color:rgb(158, 175, 125);
+  color: rgb(158, 175, 125);
 }
 
 section p {
@@ -171,7 +180,7 @@ article header time {
 }
 
 .logo-wgb {
-  width: 200px; 
+  width: 200px;
   height: auto;
   margin-right: 0.5em;
 }
@@ -189,7 +198,7 @@ article ul li {
   text-align: center;
   font-size: 1.1rem;
   color: #444;
-  margin: 0.5rem 0; 
+  margin: 0.5rem 0;
 }
 
 .degree-info {
@@ -202,11 +211,11 @@ article ul li {
   text-align: center;
   font-size: 1.1rem;
   color: #444;
-  margin: 0.5rem 0; 
+  margin: 0.5rem 0;
 }
 
 #work-experience article:nth-of-type(2) {
-  margin-top: 2rem; 
+  margin-top: 2rem;
 }
 
 #skills ul {
@@ -235,6 +244,70 @@ input, textarea, button, select {
   font: inherit; /* Ensures that form controls inherit font-family from the body */
 }
 
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color-dark: #121212;
+    --text-color-dark: white;
+    --accent-color-dark: #bb86fc;
+    --border-color-dark: oklch(50% 10% 200 / 30%);
+  }
 
+  body {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+  }
 
+  nav {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+    border-bottom: 1px solid var(--border-color-dark);
+  }
 
+  nav a {
+    color: var(--text-color-dark);
+  }
+
+  h1, h2, h3, h4 {
+    color: var(--text-color-dark);
+  }
+
+  .resume-section {
+    background-color: var(--bg-color-dark);
+    color: var(--text-color-dark);
+  }
+
+  .resume-section h2 {
+    color: var(--accent-color-dark);
+  }
+
+  .resume-section p {
+    color: var(--text-color-dark);
+  }
+
+  a {
+    color: var(--accent-color-dark);
+  }
+
+  a:hover {
+    color: var(--accent-color-light); /* Lighter hover effect for dark mode */
+  }
+
+  /* Specific styling for light text on dark background */
+  section header h2 {
+    color: rgb(158, 175, 125);
+  }
+
+  section p {
+    color: #bbb;
+  }
+
+  #skills li {
+    background-color: rgb(54, 54, 54);
+    color: rgb(222, 230, 209);
+  }
+
+  #work-experience article:nth-of-type(2) {
+    margin-top: 2rem;
+  }
+}
