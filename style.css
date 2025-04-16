@@ -1,25 +1,73 @@
 :root {
   --color-accent: oklch(95% 10% 208.59); 
   --border-color: oklch(50% 10% 200 / 40%);
-  color-scheme: light dark;
-   /* Adjusted border color for both light and dark mode */
+  --background-color-light: white; /* Define light mode background */
+  --background-color-dark: #121212; /* Dark mode background */
+  --text-color-light: black; /* Light mode text color */
+  --text-color-dark: white; /* Dark mode text color */
+  
+  color-scheme: light dark; /* Allow browser to switch between light and dark mode */
 }
 
 body {
-  /* Set line height to 1.5 times the font size and use the OS’s UI font as the website font */
   font: 100%/1.5 system-ui;
   font-family: sans-serif;
   max-width: 100ch;
   margin: 0 auto;
   padding: 1rem;
-  background-color: var(--background-color, white); /* Default background */
-  color: var(--text-color, black); /* Default text color */
+  background-color: var(--background-color-light); /* Default to light mode background */
+  color: var(--text-color-light); /* Default to light mode text color */
 }
 
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--background-color-dark); /* Dark mode background */
+    color: var(--text-color-dark); /* Dark mode text color */
+  }
+
+  nav {
+    --border-color: oklch(50% 10% 200 / 40%);
+    border-bottom-color: var(--border-color); /* Use the adjusted border color */
+  }
+
+  /* More dark mode styles */
+  header p {
+    color: #bbb; /* Lighten the text color in dark mode */
+  }
+
+  section p {
+    color: #ccc; /* Lighten the section text color */
+  }
+
+  /* Adjust hover state for dark mode */
+  nav a:hover {
+    background-color: var(--color-accent);
+    border-bottom: 0.5em solid oklch(80% 20% 215);
+  }
+}
+
+/* Light mode styles (optional, but good for clarity) */
+@media (prefers-color-scheme: light) {
+  body {
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+  }
+
+  nav {
+    border-bottom-color: var(--border-color); /* Use the adjusted border color */
+  }
+
+  nav a:hover {
+    background-color: var(--color-accent);
+    border-bottom: 0.5em solid oklch(80% 20% 215);
+  }
+}
+
+/* Other existing styles for layout, forms, etc., go below */
 nav {
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid var(--border-color); /* Use the adjusted border color */
+  border-bottom: 1px solid var(--border-color);
   margin-bottom: 1rem;
 }
 
@@ -38,13 +86,6 @@ nav a.current {
   font-weight: bold;
   border-bottom: 0.4em solid var(--border-color);  
   padding-bottom: 0.2em;
-}
-
-nav a:hover {
-  background-color: var(--color-accent);  
-  color: inherit; 
-  border-bottom: 0.5em solid oklch(80% 20% 215);  
-  padding-bottom: 0.2em;  
 }
 
 input, textarea, button {
@@ -93,9 +134,9 @@ h2 {
 }
 
 h1 {
-  font-size: 4em;  /* 400% of body text size */
+  font-size: 4em;
   line-height: 1.1;
-  text-wrap: balance; /* Ensures heading text doesn't break unevenly */
+  text-wrap: balance;
 }
 
 h2 {
@@ -134,7 +175,7 @@ section header h2 {
   border-bottom: 2px solid var(--border-color);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-  color:rgb(158, 175, 125);
+  color: rgb(158, 175, 125);
 }
 
 section p {
