@@ -81,34 +81,32 @@ form button {
 
 /* === Projects Section === */
 
+/* === Projects Section === */
+
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 2em;
   padding: 1rem;
+  align-items: start;
 }
 
-article {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.projects article {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  gap: 0.5em;
   max-width: 100%;
 }
 
-article header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-}
-
-article header h3 {
+.projects h3 {
   font-size: 1.25rem;
   font-weight: bold;
   margin: 0;
   color: #000;
 }
 
-article img {
+.projects img {
   width: 100%;
   height: auto;
   max-height: 200px;
@@ -116,17 +114,15 @@ article img {
   background-color: #ddd;
 }
 
-article .description {
+.projects .description {
   font-size: 1rem;
   color: #444;
-  margin-top: 0.5rem;
 }
 
-article .year {
-  font-size: 0.95rem;
+.projects .year {
+  font-size: 0.9rem;
   color: #666;
   font-style: italic;
-  margin-top: 0.5rem;
 }
 
 /* === Responsive fallback === */
@@ -135,6 +131,7 @@ article .year {
     grid-template-columns: 1fr;
   }
 }
+
 
 /* === Typography === */
 
