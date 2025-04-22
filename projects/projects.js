@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     // Update the title to show the number of projects
-    projectsTitle.textContent = `Projects (${projects.length})`;
+    projectsTitle.textContent = `(${projects.length}) Projects`;
     
     // Render the projects dynamically
     renderProjects(projects, projectsContainer, 'h2');
