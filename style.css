@@ -288,7 +288,7 @@ input, textarea, button, select {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
-  grid-template-rows: auto auto auto; /* Ensure enough space for each element */
+  grid-template-rows: auto auto auto auto; /* Ensure enough space for title, image, description, and year */
 }
 
 .projects article h2 {
@@ -309,6 +309,7 @@ input, textarea, button, select {
   margin-top: 0.5em; /* Optional space between description and year */
   font-weight: bold;  /* Optional styling for the year */
 }
+
 
 
 
