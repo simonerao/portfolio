@@ -1,12 +1,12 @@
 :root {
-  --color-accent: oklch(95% 10% 208.59);
-  color-scheme: light dark;
-  --border-color-light: oklch(50% 10% 200 / 40%);
+  --color-accent: oklch(95% 10% 208.59); 
+  color-scheme: light dark; 
+  --border-color-light: oklch(50% 10% 200 / 40%); 
   --border-color-dark: oklch(50% 10% 200 / 30%);
 }
 
 html {
-  color-scheme: light dark;
+  color-scheme: light dark; 
 }
 
 body {
@@ -15,15 +15,15 @@ body {
   max-width: 100ch;
   margin: 0 auto;
   padding: 1rem;
-  background-color: var(--bg-color-light);
-  color: var(--text-color-light);
+  background-color: var(--bg-color-light); 
+  color: var(--text-color-light); 
 }
 
 nav {
   --border-color: var(--border-color-light);
   display: flex;
   gap: 1rem;
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color); 
   margin-bottom: 1rem;
 }
 
@@ -34,21 +34,21 @@ nav a {
   text-decoration: none;
   color: inherit;
   font-weight: bold;
-  margin-bottom: 0;
+  margin-bottom: 0;  
 }
 
 nav a.current {
   color: inherit;
   font-weight: bold;
-  border-bottom: 0.4em solid var(--border-color);
+  border-bottom: 0.4em solid var(--border-color); 
   padding-bottom: 0.2em;
 }
 
 nav a:hover {
   background-color: color-mix(in oklch, oklch(95% 10% 208.59), canvas 85%);
-  color: inherit;
-  border-bottom: 0.5em solid oklch(80% 20% 215);
-  padding-bottom: 0.2em;
+  color: inherit; 
+  border-bottom: 0.5em solid oklch(80% 20% 215);  
+  padding-bottom: 0.2em;  
 }
 
 input, textarea, button {
@@ -79,76 +79,37 @@ form button {
   grid-column: 1 / -1;
 }
 
-/* === Projects Section === */
-
-/* === Projects Section === */
-
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
-  gap: 2em;
-  padding: 1rem;
-  align-items: start;
+  gap: 1rem;
 }
 
-.projects article {
+article {
   display: grid;
   grid-template-rows: subgrid;
   grid-row: span 3;
-  gap: 0.5em;
-  max-width: 100%;
-}
-
-.projects h3 {
-  font-size: 1.25rem;
-  font-weight: bold;
-  margin: 0;
-  color: #000;
-}
-
-.projects img {
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  object-fit: cover;
-  background-color: #ddd;
-}
-
-.projects .description {
-  font-size: 1rem;
-  color: #444;
-}
-
-.projects .year {
-  font-size: 0.9rem;
-  color: #666;
-  font-style: italic;
-}
-
-/* === Responsive fallback === */
-@media (max-width: 600px) {
-  .projects {
-    grid-template-columns: 1fr;
-  }
-}
-
-
-/* === Typography === */
-
-h1 {
-  font-size: 4em;
-  line-height: 1.1;
-  text-wrap: balance;
+  gap: 1em;
 }
 
 h2 {
-  font-size: 2.5em;
+  margin: 0;
+}
+
+h1 {
+  font-size: 4em;  
+  line-height: 1.1;
+  text-wrap: balance; 
+}
+
+h2 {
+  font-size: 2.5em;  
   line-height: 1.1;
   text-wrap: balance;
 }
 
 h3, h4, h5, h6 {
-  font-size: 1.5em;
+  font-size: 1.5em;  
   line-height: 1.1;
   text-wrap: balance;
 }
@@ -159,7 +120,7 @@ header {
 }
 
 header h1 {
-  font-size: 4em;
+  font-size: 4em;  
   margin-bottom: 0.5rem;
 }
 
@@ -177,7 +138,7 @@ section header h2 {
   border-bottom: 2px solid oklch(80% 3% 200);
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
-  color: rgb(158, 175, 125);
+  color:rgb(158, 175, 125);
 }
 
 section p {
@@ -191,11 +152,44 @@ section ul {
   margin-left: 2rem;
 }
 
+article header h3 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(68, 68, 68);
+  margin-bottom: 0.5rem;
+}
+
+article header time {
+  font-size: 1rem;
+  color: #666;
+}
+
+.logo-portfolink {
+  width: 100px;
+  height: auto;
+  margin-right: 0.5em;
+}
+
+.logo-wgb {
+  width: 200px; 
+  height: auto;
+  margin-right: 0.5em;
+}
+
+article ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+article ul li {
+  margin-bottom: 0.5rem;
+}
+
 #personal-info p {
   text-align: center;
   font-size: 1.1rem;
   color: #444;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0; 
 }
 
 .degree-info {
@@ -208,17 +202,11 @@ section ul {
   text-align: center;
   font-size: 1.1rem;
   color: #444;
-  margin: 0.5rem 0;
-}
-
-#projects article p:last-of-type {
-  margin-top: 0.5rem;
-  text-align: center;
-  font-weight: bold;
+  margin: 0.5rem 0; 
 }
 
 #work-experience article:nth-of-type(2) {
-  margin-top: 2rem;
+  margin-top: 2rem; 
 }
 
 #skills ul {
@@ -240,11 +228,11 @@ section ul {
   top: 1rem;
   right: 1rem;
   font-size: 80%;
-  font-family: inherit;
+  font-family: inherit; /* Inherit font-family from parent */
 }
 
 input, textarea, button, select {
-  font: inherit;
+  font: inherit; /* Ensures that form controls inherit font-family from the body */
 }
 
 #profile-stats dl {
