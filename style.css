@@ -279,24 +279,10 @@ input, textarea, button, select {
   margin: 0;
 }
 
-.projects article {
-  display: flex;
-  flex-direction: column;
-}
-
-.projects article img {
-  order: 1;
-}
-
-.projects article p {
-  order: 2;
-  margin: 0.5em 0;
-}
-
-.projects article time {
-  order: 3;
-  font-size: 0.9em;
-  color: #666;
-  text-align: center;
-  margin-top: 0.3em;
+article time {
+  display: block;        /* make it take the full line */
+  text-align: left;      /* align text to the left */
+  margin-top: 0.5rem;    /* add spacing above the year */
+  font-style: italic;    /* optional: make it stylistically distinct */
+  color: #555;           /* optional: subtle color */
 }
