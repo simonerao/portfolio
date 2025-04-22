@@ -275,14 +275,6 @@ input, textarea, button, select {
   margin-bottom: 0.5em;
 }
 
-.projects article p {
-  margin: 0 0 0.5em 0;
-}
-
-.projects article .year {
-  font-size: 0.9em;
-  color: #666;
-}
 
 .projects article {
   display: grid;
