@@ -132,21 +132,24 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-  containerElement.innerHTML = '';
+export function renderProjects(project, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = '';  // Clear existing content
 
-  projects.forEach(project => {
-    const article = document.createElement('article');
+  const article = document.createElement('article');
+  
+  // Dynamically set the heading level
+  const heading = document.createElement(headingLevel);
+  heading.textContent = project.title;
+  article.appendChild(heading);
 
-    article.innerHTML = `
-      <${headingLevel}>${project.title}</${headingLevel}>
-      <img src="${project.image || ''}" alt="${project.title || 'Project image'}">
-      <p>${project.description || 'No description available.'}</p>
-    `;
-
-    containerElement.appendChild(article);
-  });
+  article.innerHTML += `
+    <img src="${project.image}" alt="${project.title}">
+    <p>${project.description}</p>
+  `;
+  
+  containerElement.appendChild(article);
 }
+
 
 
 

@@ -1,13 +1,8 @@
-import { fetchJSON, renderProjects } from './global.js';
+import { fetchJSON, renderProjects } from '../global.js';
 
-const data = await fetchJSON(`${BASE_PATH}lib/projects.json`);
-renderProjects(data, document.querySelector('.projects'), 'h3');
-
-// Count the projects and update the title
-const titleElement = document.querySelector('.projects-title');
-if (titleElement) {
-  titleElement.textContent = `Projects (${data.length})`;
-}
+const projects = await fetchJSON('../lib/projects.json'); 
+const projectsContainer = document.querySelector('.projects');
+renderProjects(projects, projectsContainer, 'h2');
 
 console.log("Projects loaded:", data);
 
