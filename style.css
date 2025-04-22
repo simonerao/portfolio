@@ -279,36 +279,6 @@ input, textarea, button, select {
   margin: 0;
 }
 
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible columns */
-  gap: 1em; /* Space between each article */
-}
-
-.projects article {
-  display: grid;
-  grid-template-rows: auto auto auto; /* Adjust the grid to have 3 rows: image, description, year */
-  gap: 0.5em; /* Space between the rows */
-  border: 1px solid #ccc; /* Optional, just for visibility */
-  padding: 1em;
-}
-
-.projects article img {
-  grid-row: 1; /* Image is in the first row */
-  width: 100%; /* Ensure the image fills the width of the container */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.projects article p.description {
-  grid-row: 2; /* Description is in the second row */
-  margin: 0; /* Remove default margin */
-}
-
-.projects article p.year {
-  grid-row: 3; /* Year is in the third row */
-  font-weight: bold; /* Optional: style the year */
-  margin: 0; /* Remove default margin */
-}
 
 
 
