@@ -79,19 +79,33 @@ form button {
   grid-column: 1 / -1;
 }
 
+/* === Projects Section === */
+
 .projects {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
   padding: 1rem;
 }
 
 article {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  margin-bottom: 2rem;
+  gap: 0.5rem;
   max-width: 100%;
+}
+
+article header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+article header h3 {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin: 0;
+  color: #000;
 }
 
 article img {
@@ -99,46 +113,30 @@ article img {
   height: auto;
   max-height: 200px;
   object-fit: cover;
+  background-color: #ddd;
 }
 
 article .description {
   font-size: 1rem;
   color: #444;
-  margin-top: 1rem;
-}
-
-article header {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-article header h3 {
-  font-size: 1.5rem;
-  font-weight: bold;
-  margin: 0;
-}
-
-article header time {
-  font-size: 1rem;
-  color: #666;
+  margin-top: 0.5rem;
 }
 
 article .year {
-  font-size: 0.9rem;
-  color: #555;
-  margin-top: 1rem;
-  text-align: center;
+  font-size: 0.95rem;
+  color: #666;
+  font-style: italic;
+  margin-top: 0.5rem;
 }
 
-article .image-box {
-  display: block;
-  width: 100%;
-  height: auto;
-  max-height: 200px;
-  background-color: #f0f0f0;
-  border-radius: 8px;
+/* === Responsive fallback === */
+@media (max-width: 600px) {
+  .projects {
+    grid-template-columns: 1fr;
+  }
 }
+
+/* === Typography === */
 
 h1 {
   font-size: 4em;
@@ -194,18 +192,6 @@ section p {
 section ul {
   list-style-type: disc;
   margin-left: 2rem;
-}
-
-article header h3 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: rgb(68, 68, 68);
-  margin-bottom: 0.5rem;
-}
-
-article header time {
-  font-size: 1rem;
-  color: #666;
 }
 
 #personal-info p {
