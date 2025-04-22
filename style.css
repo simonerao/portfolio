@@ -277,18 +277,27 @@ input, textarea, button, select {
   height: auto;
   display: block;
   margin-bottom: 0.5em;
-  order: 1;
+}
+
+.projects article {
+  display: grid;
+  grid-template-rows: auto 1fr auto; /* Image, description, year */
+  gap: 1em; /* Space between elements */
+}
+
+.projects article img {
+  grid-row: 1; /* Image in the first row */
 }
 
 .projects article p.description {
-  order: 2; /* Description comes second */
+  grid-row: 2; /* Description in the second row */
 }
 
 .projects article p.year {
-  order: 3; /* Year comes after the description */
-  font-weight: bold; /* Optional styling for the year */
-  margin-top: 0.5em; /* Optional space between description and year */
+  grid-row: 3; /* Year in the third row */
+  font-weight: bold;
 }
+
 
 
 
