@@ -262,3 +262,20 @@ input, textarea, button, select {
   margin: auto;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
+
+.projects article {
+  display: flex;
+  flex-direction: column;
+}
+
+.projects article img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.projects article p {
+  margin: 0;
+}
+
