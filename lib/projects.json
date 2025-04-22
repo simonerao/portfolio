@@ -1,7 +1,7 @@
 [
     {
         "title": "Power Outage Predictions",
-        "image": "https://github.com/sophia-vo/Power-Outage-Predictions.git",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "In this project, we analyze a dataset of major power outages in the U.S. to answer the question: Is the average outage duration for power outages caused by severe weather equal to the average outage duration for power outages caused by equipment failure?",
         "year": "2025"
 
