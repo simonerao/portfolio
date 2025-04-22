@@ -8,3 +8,6 @@ const titleElement = document.querySelector('.projects-title');
 if (titleElement) {
   titleElement.textContent = `Projects (${data.length})`;
 }
+
+console.log("Projects loaded:", data);
+
