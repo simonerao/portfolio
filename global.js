@@ -144,14 +144,30 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     heading.textContent = project.title;
     article.appendChild(heading);
 
+    // Add the year field to the project
+    const yearElement = document.createElement('p');
+    yearElement.textContent = `Year: ${project.year}`;
+    article.appendChild(yearElement);
+
+    // Add the project description and image
     article.innerHTML += `
       <img src="${project.image}" alt="${project.title}">
       <p>${project.description}</p>
     `;
     
+    // If there is a GitHub link, add it
+    if (project.github) {
+      const githubLink = document.createElement('a');
+      githubLink.href = project.github;
+      githubLink.textContent = 'View on GitHub';
+      githubLink.target = '_blank';  // Open link in a new tab
+      article.appendChild(githubLink);
+    }
+
     containerElement.appendChild(article);
   });
 }
+
 
 export async function fetchGitHubData(username) {
   return fetchJSON(`https://api.github.com/users/${username}`);

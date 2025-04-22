@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     projectsTitle.textContent = `${projects.length} Projects`;
     
     // Render the projects dynamically
-    renderProjects(projects, projectsContainer, 'h2');
+    renderProjects(projects, projectsContainer);
     
   } catch (error) {
     console.error("Error fetching or rendering projects:", error);
