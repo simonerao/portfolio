@@ -132,24 +132,23 @@ export async function fetchJSON(url) {
   }
 }
 
-export function renderProjects(project, containerElement, headingLevel = 'h2') {
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
   containerElement.innerHTML = '';  // Clear existing content
 
-  const article = document.createElement('article');
-  
-  // Dynamically set the heading level
-  const heading = document.createElement(headingLevel);
-  heading.textContent = project.title;
-  article.appendChild(heading);
+  // Iterate over all the projects in the array
+  projects.forEach(project => {
+    const article = document.createElement('article');
+    
+    // Dynamically set the heading level
+    const heading = document.createElement(headingLevel);
+    heading.textContent = project.title;
+    article.appendChild(heading);
 
-  article.innerHTML += `
-    <img src="${project.image}" alt="${project.title}">
-    <p>${project.description}</p>
-  `;
-  
-  containerElement.appendChild(article);
+    article.innerHTML += `
+      <img src="${project.image}" alt="${project.title}">
+      <p>${project.description}</p>
+    `;
+    
+    containerElement.appendChild(article);
+  });
 }
-
-
-
-
