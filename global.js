@@ -132,3 +132,21 @@ export async function fetchJSON(url) {
   }
 }
 
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+  containerElement.innerHTML = '';
+
+  projects.forEach(project => {
+    const article = document.createElement('article');
+
+    article.innerHTML = `
+      <${headingLevel}>${project.title}</${headingLevel}>
+      <img src="${project.image || ''}" alt="${project.title || 'Project image'}">
+      <p>${project.description || 'No description available.'}</p>
+    `;
+
+    containerElement.appendChild(article);
+  });
+}
+
+
+
