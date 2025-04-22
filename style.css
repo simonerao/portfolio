@@ -268,10 +268,6 @@ input, textarea, button, select {
   flex-direction: column;
 }
 
-.projects article h2 {
-  margin: 0;
-}
-
 .projects article img {
   width: 100%;
   height: auto;
@@ -279,27 +275,32 @@ input, textarea, button, select {
   margin-bottom: 0.5em;
 }
 
+
 .projects article {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1em;
+  grid-template-rows: auto auto auto auto; /* Ensure enough space for title, image, description, and year */
 }
 
-.projects article p {
-  margin: 0 0 0.5em 0;
+.projects article h2 {
+  grid-row: 1; /* Title stays at the top */
+  margin: 0;
 }
 
-.projects article .description {
-  grid-row: auto;
+.projects article img {
+  grid-row: 2; /* Image comes second */
 }
 
-.projects article .year {
-  margin-top: 0.5em; /* Adjust as needed */
-  font-weight: bold;  /* Optional styling */
-  grid-row: auto;
+.projects article p.description {
+  grid-row: 3; /* Description goes after the image */
 }
 
-
+.projects article p.year {
+  grid-row: 4; /* Year comes after the description */
+  margin-top: 0.5em; /* Optional space between description and year */
+  font-weight: bold;  /* Optional styling for the year */
+}
 
 
 
