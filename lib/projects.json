@@ -1,8 +1,11 @@
 [
     {
-        "title": "Lorem ipsum dolor sit.",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nostrum odio cupiditate at numquam magni assumenda animi ratione, reiciendis et doloremque sint sunt architecto minus quia ad soluta tenetur aperiam? Minus!"
+        "title": "Power Outage Predictions",
+        "year": "2025",
+        "image": "https://github.com/sophia-vo/Power-Outage-Predictions.git",
+        "description": "In this project, we analyze a dataset of major power outages in the U.S. to answer the question: Is the average outage duration for power outages caused by severe weather equal to the average outage duration for power outages caused by equipment failure?"
+        
+        
     },
     {
         "title": "Quasi cupiditate nostrum alias.",
