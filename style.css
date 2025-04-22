@@ -268,26 +268,16 @@ input, textarea, button, select {
   flex-direction: column;
 }
 
-.projects article img {
-  width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 0.5em;
-}
-
-
-.projects article {
-  display: flex;
-  flex-direction: column; /* Stack the content vertically */
-  gap: 1em;
-}
-
 .projects article h2 {
   margin: 0;
 }
 
 .projects article img {
-  order: 1; /* Image stays first */
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 0.5em;
+  order: 1;
 }
 
 .projects article p.description {
