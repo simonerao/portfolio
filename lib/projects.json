@@ -8,18 +8,18 @@
 
     },
     {
-        "title": "Quasi cupiditate nostrum alias.",
+        "title": "Entertainment Recommender",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Numquam asperiores consectetur quae voluptatem consequatur non voluptate totam suscipit incidunt odit! Voluptas quisquam facilis maiores dolore iste, enim voluptates rerum ab officia omnis perferendis modi ipsa adipisci quidem cumque.",
-        "year": "2025",
-        "github": "https://github.com/sophia-vo/Power-Outage-Predictions.git"
+        "description": "The Entertainment Recommender is a Flask-based web application that suggests books, movies, and songs based on user preferences. By leveraging OpenAI’s GPT-3.5-turbo model, the application generates personalized recommendations to enhance your entertainment experience.",
+        "year": "2024",
+        "github": "https://github.com/yvcardenas/entertainment_recommender.git"
     },
     {
-        "title": "Amet delectus rerum velit.",
+        "title": "The Color of Convenience",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Dolor, odit placeat sapiente aut quidem laudantium amet quo blanditiis tempore corrupti neque excepturi laborum ea animi molestias debitis eligendi adipisci consequuntur eos nobis voluptas deserunt eveniet. Aliquam, asperiores culpa!",
+        "description": "Data visualization showing how processing affectds food cost and nutritional value. As processing increasing, food becomes cheaper but less nutritional. ",
         "year": "2025",
-        "github": "https://github.com/sophia-vo/Power-Outage-Predictions.git"
+        "pdf": "https://drive.google.com/file/d/1CTU9VsfCuwZ3VvT4qk_8XfIOPxHJ1HOC/view?usp=sharing"
     },
     {
         "title": "Laborum, deleniti? Vitae, qui?",

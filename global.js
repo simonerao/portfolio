@@ -169,6 +169,16 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       article.appendChild(githubLink);
     }
 
+    // If there is a PDF link, add it
+    if (project.pdf) {
+      const pdfLink = document.createElement('a');
+      pdfLink.href = project.pdf;
+      pdfLink.textContent = 'View PDF';
+      pdfLink.target = '_blank'; // Open in a new tab
+      article.appendChild(pdfLink);
+    }
+
+
     containerElement.appendChild(article);
   });
 }
