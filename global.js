@@ -178,6 +178,12 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       article.appendChild(pdfLink);
     }
 
+    else if (project.note) {
+      const note = document.createElement('p');
+      note.textContent = project.note;
+      article.appendChild(note);
+    }
+
 
     containerElement.appendChild(article);
   });
