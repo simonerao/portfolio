@@ -34,10 +34,17 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Render the projects dynamically
     renderProjects(projects, projectsContainer);
 
-    // ======= NEW: Draw pie chart using D3 =======
+    // ======= NEW: Draw pie chart using D3 with Labels =======
 
-    // New data for the pie chart
-    const data = [1, 2, 3, 4, 5, 5];
+    // Updated data with labels
+    const data = [
+      { value: 1, label: 'apples' },
+      { value: 2, label: 'oranges' },
+      { value: 3, label: 'mangos' },
+      { value: 4, label: 'pears' },
+      { value: 5, label: 'limes' },
+      { value: 5, label: 'cherries' },
+    ];
 
     // Create the arc generator
     const arcGenerator = d3.arc()
@@ -45,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       .outerRadius(50);
 
     // Create the slice generator (this will handle calculating the angles)
-    const sliceGenerator = d3.pie();
+    const sliceGenerator = d3.pie().value(d => d.value);
 
     // Generate the start and end angles for the slices
     const arcData = sliceGenerator(data);
@@ -62,6 +69,15 @@ document.addEventListener('DOMContentLoaded', async () => {
       svg.append('path')
         .attr('d', arc)
         .attr('fill', colors(idx)); // Use colors as a function
+
+      // Add labels to each slice using arc.centroid() to position them
+      const [x, y] = arc.centroid(arcData[idx]);  // Get the centroid of each arc
+      svg.append('text')
+        .attr('x', x)
+        .attr('y', y)
+        .attr('text-anchor', 'middle')
+        .attr('dy', '.35em') // Vertical alignment
+        .text(data[idx].label);  // Label text
     });
 
     // ======= END of D3 addition =======
