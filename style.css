@@ -348,5 +348,18 @@ article time {
   flex: 1; /* Legend takes up the remaining width */
 }
 
+.searchBar {
+  display: block;
+  width: 100%;
+  max-width: 100%; /* Optional: use 800px or so if you want a limit */
+  padding: 1rem;
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  border: 2px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+
 
 
