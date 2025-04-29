@@ -1,4 +1,5 @@
 import { fetchJSON, renderProjects } from '../global.js';
+import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
 // Wait for the DOM content to fully load
 document.addEventListener('DOMContentLoaded', async () => {
@@ -32,7 +33,28 @@ document.addEventListener('DOMContentLoaded', async () => {
     
     // Render the projects dynamically
     renderProjects(projects, projectsContainer);
-    
+
+    // ======= NEW: Draw circle using D3 =======
+
+    // Create the arc generator
+    const arcGenerator = d3.arc()
+      .innerRadius(0)
+      .outerRadius(50);
+
+    // Generate the path for a full circle
+    const arc = arcGenerator({
+      startAngle: 0,
+      endAngle: 2 * Math.PI
+    });
+
+    // Select the SVG and append the path
+    d3.select('#projects-pie-plot')
+      .append('path')
+      .attr('d', arc)
+      .attr('fill', 'red');
+
+    // ======= END of D3 addition =======
+
   } catch (error) {
     console.error("Error fetching or rendering projects:", error);
   }
