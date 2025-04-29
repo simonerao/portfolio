@@ -34,16 +34,16 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Render the projects dynamically
     renderProjects(projects, projectsContainer);
 
-    // ======= NEW: Draw pie chart using D3 with Labels =======
+    // ======= NEW: Draw pie chart using D3 =======
 
-    // Updated data with labels
+    // Data for the pie chart with labels
     const data = [
       { value: 1, label: 'apples' },
       { value: 2, label: 'oranges' },
       { value: 3, label: 'mangos' },
       { value: 4, label: 'pears' },
       { value: 5, label: 'limes' },
-      { value: 5, label: 'cherries' },
+      { value: 5, label: 'cherries' }
     ];
 
     // Create the arc generator
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       .outerRadius(50);
 
     // Create the slice generator (this will handle calculating the angles)
-    const sliceGenerator = d3.pie().value(d => d.value);
+    const sliceGenerator = d3.pie().value((d) => d.value);
 
     // Generate the start and end angles for the slices
     const arcData = sliceGenerator(data);
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Create arcs (paths) from the arcData
     const arcs = arcData.map(d => arcGenerator(d));
 
-    // Use D3's scaleOrdinal for generating a color scale
+    // Assign colors to the slices using D3's color scale
     const colors = d3.scaleOrdinal(d3.schemeTableau10);
 
     // Select the SVG container and append the paths for each slice
@@ -68,30 +68,19 @@ document.addEventListener('DOMContentLoaded', async () => {
     arcs.forEach((arc, idx) => {
       svg.append('path')
         .attr('d', arc)
-        .attr('fill', colors(idx)); // Use colors as a function
-
-      // Add labels to each slice using arc.centroid() to position them
-      const [x, y] = arc.centroid(arcData[idx]);  // Get the centroid of each arc
-      svg.append('text')
-        .attr('x', x)
-        .attr('y', y)
-        .attr('text-anchor', 'middle')
-        .attr('dy', '.35em') // Vertical alignment
-        .text(data[idx].label);  // Label text
-    });
-
-    // ======= Add a Legend with D3 =======
-
-    // Select the legend <ul> and append <li> elements
-    const legend = d3.select('.legend');
-    data.forEach((d, idx) => {
-      legend
-        .append('li')
-        .attr('style', `--color:${colors(idx)}`) // Set the color for each slice
-        .html(`<span class="swatch" style="background-color: ${colors(idx)};"></span> ${d.label} <em>(${d.value})</em>`); // Create the legend items
+        .attr('fill', colors(idx)); // Fill color based on index
     });
 
     // ======= END of D3 addition =======
+
+    // Step 2.2: Adding legend
+    let legend = d3.select('.legend');
+    data.forEach((d, idx) => {
+      legend
+        .append('li')
+        .attr('style', `--color:${colors(idx)}`) // set the style attribute with color
+        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
+    });
 
   } catch (error) {
     console.error("Error fetching or rendering projects:", error);
