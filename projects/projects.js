@@ -36,8 +36,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // ======= NEW: Draw pie chart using D3 =======
 
-    // Data for the pie chart (just an example: 1 and 2 for the slices)
-    const data = [1, 2];
+    // New data for the pie chart
+    const data = [1, 2, 3, 4, 5, 5];
 
     // Create the arc generator
     const arcGenerator = d3.arc()
@@ -53,15 +53,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Create arcs (paths) from the arcData
     const arcs = arcData.map(d => arcGenerator(d));
 
-    // Assign colors to the slices
-    const colors = ['gold', 'purple'];
+    // Use D3's scaleOrdinal for generating a color scale
+    const colors = d3.scaleOrdinal(d3.schemeTableau10);
 
     // Select the SVG container and append the paths for each slice
     const svg = d3.select('#projects-pie-plot');
     arcs.forEach((arc, idx) => {
       svg.append('path')
         .attr('d', arc)
-        .attr('fill', colors[idx]); // Fill color based on index
+        .attr('fill', colors(idx)); // Use colors as a function
     });
 
     // ======= END of D3 addition =======
