@@ -149,16 +149,25 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     image.alt = project.title;
     article.appendChild(image);
 
+    // Wrap description and year in a container for styling
+    const textBlock = document.createElement('div');
+    textBlock.className = 'project-text';
+
     // Description
     const description = document.createElement('p');
     description.textContent = project.description;
-    article.appendChild(description);
+    textBlock.appendChild(description);
 
-    // Year (added LAST now)
+    // Year
     const yearElement = document.createElement('time');
+    yearElement.className = 'project-year';
     yearElement.dateTime = project.year;
     yearElement.textContent = project.year;
-    article.appendChild(yearElement);
+    textBlock.appendChild(yearElement);
+
+    // Append text block to article
+    article.appendChild(textBlock);
+
 
     // Optional GitHub link
     if (project.github) {
