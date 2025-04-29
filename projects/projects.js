@@ -6,18 +6,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   try {
     // Fetch the JSON data for projects
     const projects = await fetchJSON('../lib/projects.json');
-    console.log("Projects data fetched:", projects); // Check if data is fetched correctly
+    console.log("Projects data fetched:", projects);
     
     if (!projects || projects.length === 0) {
       console.log("No projects found in the JSON.");
-      return; // If no projects, stop here
+      return;
     }
     
-    // Select the container for the projects and the title element
     const projectsContainer = document.querySelector('.projects');
     const projectsTitle = document.querySelector('.projects-title');
     
-    // Ensure elements are selected correctly
     if (!projectsContainer) {
       console.error("Projects container not found!");
       return;
@@ -28,15 +26,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
     
-    // Update the title to show the number of projects as "12 Projects"
     projectsTitle.textContent = `${projects.length} Projects`;
-    
-    // Render the projects dynamically
     renderProjects(projects, projectsContainer);
 
     // ======= NEW: Draw pie chart using D3 =======
 
-    // Data for the pie chart with labels
     const data = [
       { value: 1, label: 'apples' },
       { value: 2, label: 'oranges' },
@@ -46,29 +40,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       { value: 5, label: 'cherries' }
     ];
 
-    // Create the arc generator
     const arcGenerator = d3.arc()
       .innerRadius(0)
       .outerRadius(50);
 
-    // Create the slice generator (this will handle calculating the angles)
     const sliceGenerator = d3.pie().value((d) => d.value);
-
-    // Generate the start and end angles for the slices
     const arcData = sliceGenerator(data);
-
-    // Create arcs (paths) from the arcData
     const arcs = arcData.map(d => arcGenerator(d));
-
-    // Assign colors to the slices using D3's color scale
     const colors = d3.scaleOrdinal(d3.schemeTableau10);
 
-    // Select the SVG container and append the paths for each slice
     const svg = d3.select('#projects-pie-plot');
     arcs.forEach((arc, idx) => {
       svg.append('path')
         .attr('d', arc)
-        .attr('fill', colors(idx)); // Fill color based on index
+        .attr('fill', colors(idx));
     });
 
     // ======= END of D3 addition =======
@@ -78,8 +63,9 @@ document.addEventListener('DOMContentLoaded', async () => {
     data.forEach((d, idx) => {
       legend
         .append('li')
-        .attr('style', `--color:${colors(idx)}`) // set the style attribute with color
-        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`); // set the inner html of <li>
+        .attr('style', `--color:${colors(idx)}`)
+        .attr('class', 'legend-item') // <<== NEW: add class to each <li>
+        .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
     });
 
   } catch (error) {
