@@ -80,6 +80,17 @@ document.addEventListener('DOMContentLoaded', async () => {
         .text(data[idx].label);  // Label text
     });
 
+    // ======= Add a Legend with D3 =======
+
+    // Select the legend <ul> and append <li> elements
+    const legend = d3.select('.legend');
+    data.forEach((d, idx) => {
+      legend
+        .append('li')
+        .attr('style', `--color:${colors(idx)}`) // Set the color for each slice
+        .html(`<span class="swatch" style="background-color: ${colors(idx)};"></span> ${d.label} <em>(${d.value})</em>`); // Create the legend items
+    });
+
     // ======= END of D3 addition =======
 
   } catch (error) {
