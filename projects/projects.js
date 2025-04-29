@@ -9,36 +9,50 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Fetch the JSON data for projects
     const projects = await fetchJSON('../lib/projects.json');
     console.log("Projects data fetched:", projects);
-    
+
     if (!projects || projects.length === 0) {
       console.log("No projects found in the JSON.");
       return;
     }
-    
+
     const projectsContainer = document.querySelector('.projects');
     const projectsTitle = document.querySelector('.projects-title');
-    
+    const searchInput = document.querySelector('.searchBar');
+
     if (!projectsContainer) {
       console.error("Projects container not found!");
       return;
     }
-    
+
     if (!projectsTitle) {
       console.error("Projects title element not found!");
       return;
     }
-    
+
     projectsTitle.textContent = `${projects.length} Projects`;
     renderProjects(projects, projectsContainer);
 
-    // ======= NEW: Draw pie chart using D3 =======
+    // ======= Search functionality =======
+    if (searchInput) {
+      searchInput.addEventListener('input', (event) => {
+        query = event.target.value.trim().toLowerCase();
 
+        const filteredProjects = projects.filter((project) =>
+          project.title.toLowerCase().includes(query)
+        );
+
+        renderProjects(filteredProjects, projectsContainer);
+        projectsTitle.textContent = `${filteredProjects.length} Projects`;
+      });
+    }
+
+    // ======= NEW: Draw pie chart using D3 =======
     const rolledData = d3.rollups(
       projects,
       (v) => v.length,
       (d) => d.year
     );
-    
+
     const data = rolledData.map(([year, count]) => {
       return { value: count, label: year };
     });
