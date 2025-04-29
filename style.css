@@ -338,4 +338,16 @@ article time {
   border-radius: 4px; /* slight rounding */
 }
 
+.container {
+  display: flex;
+  align-items: center; /* Align items vertically centered */
+  gap: 2rem; /* Space between the pie and the legend */
+  margin: 2rem 0; /* Optional: margin above and below */
+}
+
+.legend {
+  flex: 1; /* Legend takes up the remaining width */
+}
+
+
 
