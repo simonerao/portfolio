@@ -1,6 +1,8 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
+let query = ''; // Step 4.1: Declare the search query variable
+
 // Wait for the DOM content to fully load
 document.addEventListener('DOMContentLoaded', async () => {
   try {
@@ -40,7 +42,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     const data = rolledData.map(([year, count]) => {
       return { value: count, label: year };
     });
-    
 
     const arcGenerator = d3.arc()
       .innerRadius(0)
@@ -66,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       legend
         .append('li')
         .attr('style', `--color:${colors(idx)}`)
-        .attr('class', 'legend-item') // <<== NEW: add class to each <li>
+        .attr('class', 'legend-item')
         .html(`<span class="swatch"></span> ${d.label} <em>(${d.value})</em>`);
     });
 
