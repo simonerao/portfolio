@@ -292,7 +292,7 @@ article time {
 }
 
 .project-text p {
-  font-size: 0.95rem;
+  font-size: 1 rem;
   line-height: 1.5;
   margin-bottom: 0.75rem;
   text-align: left;
@@ -303,6 +303,6 @@ article time {
   font-style: italic;
   font-variant-numeric: oldstyle-nums;
   color: #666;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   text-align: left;
 }

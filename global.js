@@ -162,7 +162,7 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     const yearElement = document.createElement('time');
     yearElement.className = 'project-year';
     yearElement.dateTime = project.year;
-    yearElement.textContent = project.year;
+    yearElement.textContent = `c. ${project.year}`;
     textBlock.appendChild(yearElement);
 
     // Append text block to article
