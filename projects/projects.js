@@ -35,23 +35,37 @@ document.addEventListener('DOMContentLoaded', async () => {
     renderProjects(projects, projectsContainer);
 
     // ======= NEW: Draw circle using D3 =======
-
     // Create the arc generator
     const arcGenerator = d3.arc()
       .innerRadius(0)
       .outerRadius(50);
 
-    // Generate the path for a full circle
-    const arc = arcGenerator({
-      startAngle: 0,
-      endAngle: 2 * Math.PI
-    });
+    // Data for the pie chart (just an example: 1 and 2 for the slices)
+    const data = [1, 2];
 
-    // Select the SVG and append the path
-    d3.select('#projects-pie-plot')
-      .append('path')
-      .attr('d', arc)
-      .attr('fill', 'red');
+    let total = 0;
+    for (let d of data) {
+      total += d;
+    }
+
+    let angle = 0;
+    let arcData = [];
+    for (let d of data) {
+      let endAngle = angle + (d / total) * 2 * Math.PI;
+      arcData.push({ startAngle: angle, endAngle });
+      angle = endAngle;
+    }
+
+    // Generate arcs for the pie chart
+    const arcs = arcData.map(d => arcGenerator(d));
+
+    // Select the SVG container and append the paths
+    const svg = d3.select('#projects-pie-plot');
+    arcs.forEach((arc, i) => {
+      svg.append('path')
+        .attr('d', arc)
+        .attr('fill', i === 0 ? 'red' : 'blue'); // Assign different colors for slices
+    });
 
     // ======= END of D3 addition =======
 
