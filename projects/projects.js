@@ -37,9 +37,12 @@ document.addEventListener('DOMContentLoaded', async () => {
       searchInput.addEventListener('input', (event) => {
         query = event.target.value.trim().toLowerCase();
 
-        const filteredProjects = projects.filter((project) =>
-          project.title.toLowerCase().includes(query)
-        );
+        // Search across all project metadata (not just titles)
+        const filteredProjects = projects.filter((project) => {
+          // Join all project values and convert to lowercase for case-insensitive comparison
+          let values = Object.values(project).join(' ').toLowerCase();
+          return values.includes(query); // Case-insensitive search
+        });
 
         renderProjects(filteredProjects, projectsContainer);
         projectsTitle.textContent = `${filteredProjects.length} Projects`;
