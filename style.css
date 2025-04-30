@@ -350,8 +350,8 @@ article time {
 
 .searchBar {
   display: block;
-  width: 100%;
-  max-width: 100%; /* Optional: use 800px or so if you want a limit */
+  width: 60%;
+  max-width: 600px; /* Optional: use 800px or so if you want a limit */
   padding: 1rem;
   font-size: 1.25rem;
   margin: 1rem 0;
