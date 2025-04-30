@@ -370,3 +370,15 @@ article time {
 #projects-pie-plot path:hover {
   opacity: 1;
 }
+
+path {
+  cursor: pointer;
+}
+
+.selected {
+  --color: oklch(60% 45% 0) !important;
+}
+
+.selected:is(path) {
+  fill: var(--color);
+}
