@@ -1,9 +1,10 @@
 import { fetchJSON, renderProjects } from '../global.js';
 import * as d3 from 'https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm';
 
-let query = '';  // Track the search query globally
-let selectedIndex = -1;  // Track the selected pie slice index globally
-let allProjects = [];  // Store the full dataset globally
+let query = '';             // Track the search query globally
+let selectedIndex = -1;     // Track the selected pie slice index globally
+let allProjects = [];       // Store the full dataset globally
+let newData = [];           // 🆕 Store pie data globally for use in filtering
 
 function renderPieChart(projectsGiven) {
   // Clear previous pie chart and legend
@@ -17,7 +18,7 @@ function renderPieChart(projectsGiven) {
     (d) => d.year
   );
 
-  let newData = newRolledData.map(([year, count]) => {
+  newData = newRolledData.map(([year, count]) => {
     return { value: count, label: year };
   });
 
@@ -48,7 +49,7 @@ function renderPieChart(projectsGiven) {
         d3.select('.legend').selectAll('li')
           .attr('class', (_, i) => (i === selectedIndex ? 'selected legend-item' : 'legend-item'));
 
-        // 🆕 Filter and render projects based on both search query and selected year
+        // 🆕 Filter and render projects based on both query and year
         const projectsContainer = document.querySelector('.projects');
         const projectsTitle = document.querySelector('.projects-title');
 
@@ -69,16 +70,14 @@ function renderPieChart(projectsGiven) {
   });
 }
 
-// Helper function to combine search query and selected year filtering
+// 🧠 Helper function to combine search query and selected year filtering
 function filterProjects(projects) {
   return projects.filter(project => {
-    // Check if the project matches the search query
     const matchesSearch = Object.values(project)
       .join(' ')
       .toLowerCase()
-      .includes(query.toLowerCase());
+      .includes(query);
 
-    // Check if the project matches the selected year (if any)
     const matchesYear = selectedIndex === -1 || project.year === newData[selectedIndex].label;
 
     return matchesSearch && matchesYear;
@@ -104,19 +103,20 @@ document.addEventListener('DOMContentLoaded', async () => {
       return;
     }
 
+    // Initial render
     projectsTitle.textContent = `${allProjects.length} Projects`;
     renderProjects(allProjects, projectsContainer);
     renderPieChart(allProjects);
 
+    // Handle search input
     if (searchInput) {
       searchInput.addEventListener('input', (event) => {
         query = event.target.value.trim().toLowerCase();
 
-        // Filter projects based on both search query and selected year
         const filteredProjects = filterProjects(allProjects);
         renderProjects(filteredProjects, projectsContainer);
         projectsTitle.textContent = `${filteredProjects.length} Projects`;
-        renderPieChart(filteredProjects); // Re-render pie chart with filtered data
+        renderPieChart(filteredProjects);  // 🆕 Pie reflects filtered projects
       });
     }
 
