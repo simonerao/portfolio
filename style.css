@@ -347,3 +347,26 @@ article time {
 .legend {
   flex: 1; /* Legend takes up the remaining width */
 }
+
+.searchBar {
+  display: block;
+  width: 100%; /* Make the width span the full page */
+  max-width: 100%; /* Optional: ensure it doesn't exceed the page width */
+  padding: 0.5rem; /* Decrease the padding for a smaller height */
+  font-size: 1.25rem;
+  margin: 1rem 0;
+  border: 2px solid #ccc;
+  box-sizing: border-box;
+}
+
+#projects-pie-plot path {
+  transition: opacity 300ms ease-in-out;
+}
+
+#projects-pie-plot:hover path:not(:hover) {
+  opacity: 0.5;
+}
+
+#projects-pie-plot path:hover {
+  opacity: 1;
+}
