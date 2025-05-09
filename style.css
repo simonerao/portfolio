@@ -383,38 +383,65 @@ path {
   fill: var(--color);
 }
 
-.summary-box {
-  border: 1px solid #ddd;
+/* Basic styling for the stats container */
+#stats {
+  padding: 1.5em;
+  background-color: #fff;
   border-radius: 8px;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  background-color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  margin: 2em auto;
 }
 
-.summary-box h2 {
-  margin-bottom: 1rem;
-  font-size: 1.5rem;
+/* Summary box styling */
+.summary-box {
+  padding: 1em;
+  background-color: #f9f9f9;
+  border: 1px solid #e1e4e8;
+  border-radius: 8px;
+  margin-bottom: 2em;
 }
 
+/* Flexbox for horizontal layout */
 .stats {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2rem;
+  flex-wrap: wrap; /* Wrap items to the next line if space is tight */
+  gap: 2rem; /* Space between stats items */
+  font-size: 14px;
+  margin-top: 1em;
 }
 
 .stats dt {
-  font-size: 0.85rem;
-  color: #666;
-  text-transform: uppercase;
-  margin-bottom: 0.2rem;
+  font-weight: bold;
+  color: #586069;
+  width: 180px; /* Fixed width for the labels */
 }
 
 .stats dd {
-  font-size: 1.75rem;
-  font-weight: bold;
   margin: 0;
+  color: #24292f;
+  flex: 1; /* Make the definition values fill the remaining space */
 }
+
+/* Styling for abbreviations (for LOC) */
+abbr {
+  cursor: help;
+  border-bottom: 1px dotted #586069;
+}
+
+/* Optional: style the chart container similarly */
+#chart {
+  margin-top: 2em;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.gridlines line {
+  stroke: #ddd;
+  stroke-opacity: 0.5;
+}
+
 
 
