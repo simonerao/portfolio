@@ -443,5 +443,109 @@ abbr {
   stroke-opacity: 0.5;
 }
 
+/* Tooltip styles */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em;
+  margin: 0;
+  padding: 1em;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Positioning for the tooltip */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  visibility: hidden; /* Initially hidden */
+  pointer-events: none; /* Tooltip doesn't block interactions */
+}
+
+/* Hover effect for the circles (dots) */
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5);
+}
+
+/* Tooltip styles */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em;
+  margin: 0;
+  padding: 1em;
+  background-color: rgba(255, 255, 255, 0.8); /* semi-transparent background */
+  border: 1px solid #ccc;
+  border-radius: 10px; /* rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* subtle shadow for elevation */
+  backdrop-filter: blur(10px); /* optional: frosted glass effect */
+  transition: opacity 0.2s ease; /* smooth fade-in/out */
+}
+
+/* Make tooltip initially hidden */
+.tooltip {
+  position: fixed;
+  top: 1em;
+  left: 1em;
+  visibility: hidden; /* Initially hidden */
+  pointer-events: none; /* Tooltip doesn't block interactions */
+  opacity: 0; /* Hidden state for smooth transition */
+}
+
+/* For tooltip visibility */
+.tooltip.show {
+  visibility: visible; /* Make visible */
+  opacity: 1; /* Fade in */
+}
+
+/* Make sure <dt> labels are not too bold */
+dl.info dt {
+  font-weight: bold;
+  color: #333; /* Slightly darker for readability */
+}
+
+/* <dd> values can be less prominent */
+dl.info dd {
+  margin: 0;
+  color: #555; /* Lighter color for values */
+}
+
+dl.info {
+  /* other styles here... */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #ff6b6b; /* Change the fill color for selected dots */
+}
 
 

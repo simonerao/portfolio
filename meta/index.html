@@ -6,7 +6,6 @@
   <title>Meta</title>
   <link rel="stylesheet" href="../style.css">
   <script type="module" src="/portfolio/global.js"></script>
-
 </head>
 <body>
   <h1>Codebase Statistics</h1>
@@ -17,6 +16,30 @@
 
   <h2>Commits by time of day</h2>
   <div id="chart"></div>
+
+  <!-- ✅ Tooltip container -->
+  <div id="commit-tooltip" style="
+    position: absolute;
+    display: none;
+    pointer-events: none;
+    background: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    z-index: 1000;
+  ">
+    <p><strong>Commit:</strong> <a id="commit-link" href="#" target="_blank" rel="noopener"></a></p>
+    <p><strong>Date:</strong> <span id="commit-date"></span></p>
+    <p><strong>Author:</strong> <span id="commit-author"></span></p>
+    <p><strong>Time:</strong> <span id="commit-time"></span></p>
+    <p><strong>Lines Edited:</strong> <span id="commit-lines"></span></p>
+  </div>
+
+  <p id="selection-count">No commits selected</p>
+
+  <dl id="language-breakdown" class="stats"></dl>
+
 
 
   <!-- Import the main.js file -->
