@@ -1,23 +1,35 @@
+name: Deploy
+
 permissions:
   contents: write
   pages: write
   id-token: write
 
-- name: Checkout
-  uses: actions/checkout@v4
-  with:
-    fetch-depth: '0'
+on:
+  push:
+    branches:
+      - main  # or specify the branch you want this to run on
 
-- name: Run Elocuent
-  run: |
-    npx elocuent -d . -o meta/loc.csv
+jobs:
+  deploy:
+    runs-on: ubuntu-latest  # or another runner if needed
 
-- name: Commit and Push
-  run: |
-    git config --local user.email "action@github.com"
-    git config --local user.name "GitHub Action"
-    mkdir -p meta
-    git pull
-    git add -f meta/loc.csv
-    git commit -m "Update code statistics" || echo "No changes to commit"
-    git push
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: '0'
+
+    - name: Run Elocuent
+      run: |
+        npx elocuent -d . -o meta/loc.csv
+
+    - name: Commit and Push
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        mkdir -p meta
+        git pull
+        git add -f meta/loc.csv
+        git commit -m "Update code statistics" || echo "No changes to commit"
+        git push
