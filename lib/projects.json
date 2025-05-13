@@ -16,22 +16,22 @@
     },
     {
         "title": "The Color of Convenience",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../images/colorOfconvienence.jpg",
         "description": "Data visualization showing how processing affectds food cost and nutritional value. As processing increasing, food becomes cheaper but less nutritional. ",
         "year": "2025",
         "pdf": "https://drive.google.com/file/d/1CTU9VsfCuwZ3VvT4qk_8XfIOPxHJ1HOC/view?usp=sharing"
     },
     {
         "title": "Abortion Visualisation Report",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "image": "../images/abortionProject.jpg",
         "description": "Two visualizations illustrating the same data in two different ways to support and oppose the proposition 'States with fewer abortion clinics have more residents seeking abortion care out of state'",
         "year": "2025",
         "github": "https://simonerao.github.io/Abortion-Visualization-Report/"
     },
     {
         "title": "Bikewatching",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Doloribus corporis corrupti eos praesentium accusamus quia. Deleniti voluptatibus non accusantium eos culpa suscipit similique quos praesentium laboriosam reprehenderit, excepturi maiores aspernatur quidem mollitia magni unde, itaque animi, labore earum.",
+        "image": "../images/bikewatching.jpg",
+        "description": "An immersive, interactive map visualization of bike traffic in the Boston area during different times of the day",
         "year": "2025",
         "github": "https://simonerao.github.io/bikewatching/"
     },
