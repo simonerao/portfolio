@@ -4,7 +4,7 @@
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "In this project, we analyze a dataset of major power outages in the U.S. to answer the question: Is the average outage duration for power outages caused by severe weather equal to the average outage duration for power outages caused by equipment failure?",
         "year": "2025",
-        "github": "https://github.com/sophia-vo/Power-Outage-Predictions.git"
+        "github": "https://sophia-vo.github.io/Power-Outage-Predictions/"
 
     },
     {
@@ -26,14 +26,14 @@
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Two visualizations illustrating the same data in two different ways to support and oppose the proposition 'States with fewer abortion clinics have more residents seeking abortion care out of state'",
         "year": "2025",
-        "github": "https://github.com/simonerao/Abortion-Visualization-Report.git"
+        "github": "https://simonerao.github.io/Abortion-Visualization-Report/"
     },
     {
-        "title": "Aliquam ipsa ea saepe?",
+        "title": "Bikewatching",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Doloribus corporis corrupti eos praesentium accusamus quia. Deleniti voluptatibus non accusantium eos culpa suscipit similique quos praesentium laboriosam reprehenderit, excepturi maiores aspernatur quidem mollitia magni unde, itaque animi, labore earum.",
-        "year": "2023",
-        "note": "Coming Soon"
+        "year": "2025",
+        "github": "https://simonerao.github.io/bikewatching/"
     },
     {
         "title": "Fuga assumenda vel voluptatibus!",

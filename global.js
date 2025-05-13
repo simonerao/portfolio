@@ -174,16 +174,17 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
     if (project.github) {
       const githubLink = document.createElement('a');
       githubLink.href = project.github;
-      githubLink.textContent = 'View on GitHub';
+      githubLink.textContent = 'View Project'; // changed from 'View on GitHub'
       githubLink.target = '_blank';
       article.appendChild(githubLink);
     }
+    
 
     // If there is a PDF link, add it
     if (project.pdf) {
       const pdfLink = document.createElement('a');
       pdfLink.href = project.pdf;
-      pdfLink.textContent = 'View PDF';
+      pdfLink.textContent = 'View Project';
       pdfLink.target = '_blank'; // Open in a new tab
       article.appendChild(pdfLink);
     }
