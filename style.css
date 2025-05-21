@@ -406,28 +406,37 @@ path {
 /* Stats grid layout */
 .stats {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 2.5rem 3rem;
+  grid-template-columns: repeat(4, 1fr); /* 2 stats per row: 2 dt + 2 dd */
+  gap: 1.5rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
   text-align: center;
 }
 
-/* Labels */
 .stats dt {
+  grid-column: span 1;
   font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;
-  color: #6b7280; /* gray-500 */
-  margin-bottom: 0.25rem;
+  color: #6b7280;
+  margin: 0;
+  align-self: end;
 }
 
-/* Values */
 .stats dd {
+  grid-column: span 1;
   font-size: 2rem;
   font-weight: 600;
-  color: #111827; /* gray-900 */
+  color: #111827;
   margin: 0;
+  align-self: start;
 }
+
+
+
+
+
 
 
 
