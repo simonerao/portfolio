@@ -10,13 +10,22 @@
 <body>
   <h1>Codebase Statistics</h1>
   <p>This page includes stats about the code of this website.</p>
+  
 
   <!-- Placeholder for displaying stats -->
   <div id="stats"></div>
 
   <h2>Commits by time of day</h2>
-  <div id="chart"></div>
+  
+  
+<!-- Commit Scrolly + Chart (Side-by-side) -->
+<div id="meta-scrollytelling">
+  <div id="scroll-container">
+    <div id="items-container"></div>
+  </div>
 
+  <div id="chart"></div>
+</div>
   <!-- ✅ Tooltip container -->
   <div id="commit-tooltip" style="
     position: absolute;
@@ -39,6 +48,22 @@
   <p id="selection-count">No commits selected</p>
 
   <dl id="language-breakdown" class="stats"></dl>
+
+
+<!-- 🔽 File Scrolly + Unit Visualization (Side-by-side or stacked) -->
+<div id="file-scrollytelling">
+  <div id="file-scroll-container">
+    <div id="file-items-container"></div>
+  </div>
+
+  <div id="file-chart" class="files"></div>
+</div>
+
+  
+  
+  
+  
+
 
 
 

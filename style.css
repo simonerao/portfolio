@@ -12,12 +12,13 @@ html {
 body {
   font: 100%/1.5 system-ui;
   font-family: sans-serif;
-  max-width: 100ch;
+  max-width: min(120ch, 80vw); /* ✅ updated per instructions */
   margin: 0 auto;
   padding: 1rem;
   background-color: var(--bg-color-light); 
   color: var(--text-color-light); 
 }
+
 
 nav {
   --border-color: var(--border-color-light);
@@ -384,44 +385,51 @@ path {
 }
 
 /* Basic styling for the stats container */
-#stats {
-  padding: 1.5em;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-width: 1000px;
-  margin: 2em auto;
-}
-
-/* Summary box styling */
+/* Summary box container */
 .summary-box {
-  padding: 1em;
-  background-color: #f9f9f9;
-  border: 1px solid #e1e4e8;
-  border-radius: 8px;
-  margin-bottom: 2em;
+  padding: 2rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  margin: 2rem auto;
+  max-width: 1000px;
 }
 
-/* Flexbox for horizontal layout */
+/* Title */
+.summary-box h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+}
+
+/* Stats grid layout */
 .stats {
-  display: flex;
-  flex-wrap: wrap; /* Wrap items to the next line if space is tight */
-  gap: 2rem; /* Space between stats items */
-  font-size: 14px;
-  margin-top: 1em;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2.5rem 3rem;
+  text-align: center;
 }
 
+/* Labels */
 .stats dt {
-  font-weight: bold;
-  color: #586069;
-  width: 180px; /* Fixed width for the labels */
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  color: #6b7280; /* gray-500 */
+  margin-bottom: 0.25rem;
 }
 
+/* Values */
 .stats dd {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #111827; /* gray-900 */
   margin: 0;
-  color: #24292f;
-  flex: 1; /* Make the definition values fill the remaining space */
 }
+
+
 
 /* Styling for abbreviations (for LOC) */
 abbr {
@@ -467,10 +475,15 @@ dl.info {
 
 /* Hover effect for the circles (dots) */
 circle {
-  transition: 200ms;
-  transform-origin: center;
-  transform-box: fill-box;
+  transition:
+    fill-opacity 200ms ease,
+    r calc(var(--r, 10) * 20ms) ease;
+
+  @starting-style {
+    r: 0;
+  }
 }
+
 
 circle:hover {
   transform: scale(1.5);
@@ -547,5 +560,276 @@ dl.info[hidden]:not(:hover, :focus-within) {
 circle.selected {
   fill: #ff6b6b; /* Change the fill color for selected dots */
 }
+
+
+#sliderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.slider-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+#commitSlider {
+  width: 100%;
+}
+
+#selectedTime {
+  font-style: italic;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+
+.files {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.files > div {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+}
+
+.files dt {
+  grid-column: 1;
+  margin: 0;
+  font-weight: bold;
+}
+
+.files dd {
+  grid-column: 2;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: start;
+  align-content: start;
+  gap: 0.15em;
+  padding-top: 0.6em;
+  margin-left: 0;
+}
+
+
+.line {
+  display: flex;
+  width: 0.5em;
+  aspect-ratio: 1;
+  border-radius: 50%;
+}
+
+.files small {
+  display: block;
+  font-size: 0.75rem;
+  color: #888;
+  margin-top: 0.25em;
+}
+
+#scrollytelling {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  gap: 2rem;
+}
+
+#scroll-container {
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 1rem;
+}
+
+#chart {
+  grid-column: 2;
+}
+
+
+#items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+
+.item {
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+
+#scrollytelling {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* 1 part scroll, 2 parts chart */
+  gap: 2rem;
+  align-items: start;
+}
+
+#meta-scrollytelling {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+#file-scroll-container {
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background: #fefefe;
+}
+
+#file-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#file-chart {
+  grid-column: 2 / span 1;
+}
+
+
+#scroll-container,
+#file-scroll-container {
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background: #fefefe;
+}
+
+#items-container,
+#file-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item,
+.file-item {
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+#meta-scrollytelling {
+  display: grid;
+  grid-template-columns: 1fr 2fr; /* commit scrolly | scatterplot */
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+#file-scrollytelling {
+  display: grid;
+  grid-template-columns: 2fr 3fr; /* file scrolly | unit viz */
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+#scroll-container,
+#file-scroll-container {
+  height: 500px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  background: #fefefe;
+}
+
+#items-container,
+#file-items-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.item,
+.file-item {
+  padding: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+#commit-tooltip {
+  z-index: 10000;
+  position: fixed;
+  background-color: white;
+  pointer-events: none;
+}
+
+#meta-scrollytelling {
+  overflow: visible !important;
+  position: relative;
+}
+
+#chart {
+  position: relative;
+  z-index: 1;
+}
+
+svg {
+  overflow: visible;
+}
+
+#commit-tooltip {
+  z-index: 9999 !important;
+}
+
+
+#chart {
+  overflow: visible;
+}
+
+
+#language-breakdown {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem 2rem;
+  margin-top: 2rem;
+  padding: 1.5rem;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  font-family: inherit;
+  font-size: 0.95rem;
+  max-width: 1000px;
+}
+
+#language-breakdown dt {
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #6b7280; /* Gray-500 */
+  margin-bottom: 0.25rem;
+  font-size: 0.8rem;
+}
+
+#language-breakdown dd {
+  margin: 0 0 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #111827; /* Gray-900 */
+}
+
+
+
+
+
+
 
 
